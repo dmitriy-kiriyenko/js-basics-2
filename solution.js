@@ -5,37 +5,19 @@ function isEven(number) {
 }
 
 function pascal(row, col) {
-  // Write a procedure that computes the elements of Pascal's triangle by means of a recursive process.
-  //     1
-  //    1 1
-  //   1 2 1
-  //  1 3 3 1
-  // 1 4 6 4 1
-  //
-  // pascal(4, 2)
-  // // → 6
+  if (col === 0 || row === col) {
+    return 1
+  } else if (row >= col) {
+    return pascal(row - 1, col - 1) + pascal(row - 1, col)
+  }
 }
 
 function sqrt(x) {
-  // Square roots by Newton's method http://en.wikipedia.org/wiki/Newton%27s_method
-  // Also you can look at the problem description in SICP[1.1.7] http://newstar.rinet.ru/~goga/sicp/sicp.pdf
-  // You should write a function that takes a number and computes square root
-  // You can build solution based on functions structure defined below or you can make up your own
-}
-
-function sqrtIter(guess, x) {
-}
-
-function improve(guess, x) {
-}
-
-function average(x, y) {
-}
-
-function isGoodEnough(guess, x) {
-}
-
-function square(x) {
+  var old_guess, guess = 1;
+  do {
+    old_guess = guess, guess = (old_guess + x/old_guess)/2;
+  } while (Math.abs(old_guess - guess) >= 1e-3)
+  return guess;
 }
 
 module.exports.isEven = isEven;
