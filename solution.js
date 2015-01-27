@@ -16,7 +16,7 @@ function sqrt(x) {
   var old_guess, guess = 1;
   do {
     old_guess = guess, guess = (old_guess + x/old_guess)/2;
-  } while (Math.abs(old_guess - guess) >= 1e-3)
+  } while (Math.abs((old_guess - guess)/old_guess) >= 1e-6)
   return guess;
 }
 
